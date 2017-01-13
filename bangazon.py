@@ -8,6 +8,7 @@ class Department(object):
         self.name = name
         self.supervisor = supervisor
         self.size = employee_count
+#        self.budget = set_budget()
 
     def get_name(self):
         """Returns the name of the department"""
@@ -16,6 +17,14 @@ class Department(object):
     def get_supervisor(self):
         """Returns the name of the supervisor"""
         return self.supervisor
+
+#    def set_budget(self):
+#        """Sets the base budget for Departments"""
+#        return self.budget
+#
+#    def get_budget(self):
+#        """Returns the budget for the Department"""
+#        return self.budget
 
 class HumanResources(Department):
     """Class representing Human Resources department
@@ -39,6 +48,14 @@ class HumanResources(Department):
     def get_policy(self):
         return self.policies
 
+    def meet():
+        print("Everyone meet in {}'s office".format(self.supervisor))
+
+#   def get_budget(self, budget_adjustment):
+#       self.budget = super(Department).get_budget() - budget_adjustment
+#       return self.budget
+
+
 class InformationTechnology(Department):
     def __init__(self):
         super().__init__(self, name, supervisor, employee_count)
@@ -46,6 +63,10 @@ class InformationTechnology(Department):
 
     def add_devLanguage(self, language_name):
         """Adds a language to the set of languages"""
+
+    def meet():
+        """This overrides the base meet() method completely"""
+        print("Everyone meet in the server room")
 
 class Marketing(Department):
     """Class representing Marketing department
@@ -59,6 +80,7 @@ class Marketing(Department):
     def add_material(self, material_type):
         self.materials.add(material_type)
 
+#Create instance of marketing
 marketing_department = Marketing("Marketing", "Jami Jackson", 3)
 
 print("{0} is the head of the {1} Department, which has {2} employees".format(marketing_department.supervisor, marketing_department.name, marketing_department.size))
@@ -74,3 +96,7 @@ CodeOfConduct_policy = {x: y for x, y in human_resources_dept.policies if "Code 
 print(type(CodeOfConduct_policy))
 for k, v in CodeOfConduct_policy.items():
     print("Please see {0}, to view our {1} policy which has the following desription: {2}".format(human_resources_dept.name, k, v))
+
+#Print the budget from human resources
+#human_resources_budget = human_resources_dept.getbudget()
+#print("The yearly budget for the {} department is ${}.".format(human_resources_dept.name, human_resources_dept.get_budget(30000)))
